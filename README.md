@@ -1,7 +1,7 @@
 Introduction
 ------------
 
-This is an implementation of augmented Interval Trees stored in a balanced red and black tree. Most of the implementation is explained in detail in [Introduction to Algorithms by T. Cormen et al.][book]
+This is an implementation of augmented Interval Trees stored in a balanced red and black tree. Most of the implementation is explained in detail in [Introduction to Algorithms by T. Cormen et al.][book] with the addition of open-closed intervals
 
 The source has been compiled both on .NET and Mono.
 
@@ -62,6 +62,9 @@ Searching is done by descending down the tree. In each node, the following invar
 
 During descent, one of two paths are followed. The left subtree is ommited if the start of the interval is greater than the `MaxEnd` of the left node: clearly it cannot be located there. If the search goes Left, there must be an overlapping interval in the left subtree as there exists and interval i, whose end value equals left's `MaxEnd`.
 
+### Open-Closed intervals
+
+The addition of IntervalType allows for the endpoints to be either excluded (open) or included (closed) from the query. An open interval does not include its endpoints, and is indicated with parentheses. For example, (10,15) means greater than 10 and less than 15. A closed interval does includes all its limit points, and is denoted with square brackets. For example, [10,15] means greater than or equal to 10 and less than or equal to 15. A half-open interval includes only one of its endpoints, and is denoted by mixing the notations for open and closed intervals. (10,15] means greater than 10 and less than or equal to 15, while [10,15) means greater than or equal to 10 and less than 15.
 
 Building
 --------
