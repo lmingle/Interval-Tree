@@ -11,14 +11,14 @@ namespace Tests.IntervalTree
     public class Spec
     {
         [DebuggerStepThrough]
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetUp() {
             EstablishContext();
             BecauseOf();
         }
 
         [DebuggerStepThrough]
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void TearDown() {
             Cleanup();
         }
